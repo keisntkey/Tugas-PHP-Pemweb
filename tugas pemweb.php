@@ -3,7 +3,7 @@ $matkul = [
     ["nama" => "Pemrograman Web", "sks" => 3, "nilai" => 85],
     ["nama" => "Basis Data", "sks" => 3, "nilai" => 75],
     ["nama" => "Algoritma Pemrograman", "sks" => 4, "nilai" => 60],
-    ["nama" => "Jaringan Komputer", "sks" => 3, "nilai" => 45], // Bobot D -> Mengulang
+    ["nama" => "Jaringan Komputer", "sks" => 3, "nilai" => 45], 
     ["nama" => "Sistem Operasi", "sks" => 3, "nilai" => 90],
 ];
 
@@ -48,7 +48,7 @@ $total_bobot = 0;
             background-color: #f2f2f2;
         }
         .baris-mengulang {
-            background-color: #ffcccc; /* warna merah muda */
+            background-color: #ffcccc; 
         }
     </style>
 </head>
@@ -56,7 +56,6 @@ $total_bobot = 0;
 
     <h2>Kartu Hasil Studi Mahasiswa</h2>
 
-    <!-- 3. Tabel mata kuliah -->
     <table>
         <tr>
             <th>No</th>
@@ -75,7 +74,6 @@ $total_bobot = 0;
             $huruf = $hasil['huruf'];
             $bobot = $hasil['bobot'];
 
-            // Cek status LULUS atau MENGULANG
             if ($bobot >= 2.0) {
                 $status = "LULUS";
                 $kelas_warna = "";
@@ -84,7 +82,6 @@ $total_bobot = 0;
                 $kelas_warna = "baris-mengulang";
             }
 
-            // Hitung akumulasi SKS dan Bobot untuk IPS
             $total_sks += $m['sks'];
             $total_bobot += ($m['sks'] * $bobot);
         ?>
@@ -101,10 +98,8 @@ $total_bobot = 0;
     </table>
 
     <?php
-    // 5. Hitung Ringkasan IPS (Total Nilai Bobot / Total SKS)
     $ips = $total_bobot / $total_sks;
 
-    // 6. Batas maksimal SKS semester depan
     if ($ips >= 3.00) {
         $maks_sks = 24;
         $keterangan = "Karena IPS >= 3.00, Anda berhak mengambil maksimal 24 SKS.";
@@ -114,7 +109,6 @@ $total_bobot = 0;
     }
     ?>
 
-    <!-- Tampilan Ringkasan IPS -->
     <h3>Ringkasan Hasil Studi:</h3>
     <ul>
         <li>Total SKS: <b><?= $total_sks; ?> SKS</b></li>
